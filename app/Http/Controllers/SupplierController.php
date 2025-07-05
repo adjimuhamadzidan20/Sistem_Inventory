@@ -1,0 +1,118 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Supplier;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+class SupplierController extends Controller
+{
+    public function supplier()
+    {
+        $modelSupplier = new Supplier();
+        $data = $modelSupplier->get();
+
+        return view('halaman.data_supplier', [
+            'title' => 'Supplier',
+            'active' => 'Supplier',
+            'supplier' => $data
+        ]);
+    }
+
+    public function create_supplier()
+    {
+        $waktu = Carbon::now()->format('dmY');
+        $waktuSekarang = Carbon::today();
+        $lastSupplier = Supplier::whereDate('created_at', $waktuSekarang)
+            ->orderBy('kd_supplier', 'desc')
+            ->first();
+
+        if (!$lastSupplier) {
+            $no = 1;
+        } else {
+            $lastNumber = (int) substr($lastSupplier->kd_supplier, -3);
+            $no = $lastNumber + 1;
+        }
+
+        $kodeSupplier = 'SP-' . $waktu . '-' . str_pad($no, 3, '0', STR_PAD_LEFT);
+        return view('halaman.create.create_supplier', [
+            'title' => 'Tambah Supplier',
+            'active' => 'Supplier',
+            'kode' => $kodeSupplier
+        ]);
+    }
+
+    public function edit_supplier($id)
+    {
+        $data = Supplier::find($id);
+
+        return view('halaman.edit.edit_supplier', [
+            'title' => 'Edit Supplier',
+            'active' => 'Supplier',
+            'supplier' => $data
+        ]);
+    }
+
+    public function create_supplier_proses(Request $request)
+    {
+        $pesanValidasi = [
+            'nama_supplier.required' => 'Nama supplier tidak boleh kosong!',
+            'alamat.required' => 'Alamat tidak boleh kosong!',
+            'telp.required' => 'Telp tidak boleh kosong!',
+        ];
+
+        $validasi = Validator::make($request->all(), [
+            'nama_supplier' => 'required',
+            'alamat' => 'required',
+            'telp' => 'required',
+        ], $pesanValidasi);
+
+        if ($validasi->fails()) {
+            return redirect()->back()->withErrors($validasi)->withInput();
+        }
+
+        $data['kd_supplier'] = $request->kd_supplier;
+        $data['nama_supplier'] = $request->nama_supplier;
+        $data['alamat'] = $request->alamat;
+        $data['telepon'] = $request->telp;
+
+        Supplier::create($data);
+        return redirect()->route('supplier');
+    }
+
+    public function edit_supplier_proses(Request $request, $id)
+    {
+        $pesanValidasi = [
+            'nama_supplier.required' => 'Nama supplier tidak boleh kosong!',
+            'alamat.required' => 'Alamat tidak boleh kosong!',
+            'telp.required' => 'Telp tidak boleh kosong!',
+        ];
+
+        $validasi = Validator::make($request->all(), [
+            'nama_supplier' => 'required',
+            'alamat' => 'required',
+            'telp' => 'required',
+        ], $pesanValidasi);
+
+        if ($validasi->fails()) {
+            return redirect()->back()->withErrors($validasi)->withInput();
+        }
+
+        $data['kd_supplier'] = $request->kd_supplier;
+        $data['nama_supplier'] = $request->nama_supplier;
+        $data['alamat'] = $request->alamat;
+        $data['telepon'] = $request->telp;
+
+        Supplier::whereId($id)->update($data);
+        return redirect()->route('supplier');
+    }
+
+    public function delete_supplier($id)
+    {
+        $data = Supplier::find($id);
+        $data->delete();
+        return redirect()->route('supplier');
+    }
+}
