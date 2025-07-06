@@ -12,60 +12,39 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span>Tabel Barang Masuk</span>
-                        <button
-                            class="btn btn-primary btn-round"
-                            data-bs-toggle="modal"
-                            data-bs-target="#addRowModal">
-                            <i class="fa fa-plus me-1"></i>
-                            Tambah Barang Masuk
-                        </button>
+                        <a href="{{ route('barangmasuk_create') }}" class="btn btn-primary">
+                            <i class="fa fa-plus me-1"></i>Tambah
+                        </a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="basic-datatables" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>No</th>
+                                        <th>Kode</th>
+                                        <th>Tanggal Masuk</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah</th>
+                                        <th>Supplier</th>
+                                        <th>Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                        <td>$170,750</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td>2009/01/12</td>
-                                        <td>$86,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29</td>
-                                        <td>$433,060</td>
-                                    </tr>
+                                    @foreach ($barangmasuk as $data)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $data->kd_barangmasuk }}</td>
+                                            <td>{{ $data->tanggal_masuk }}</td>
+                                            <td>{{ $data->barang->nama_barang }}</td>
+                                            <td>{{ $data->jumlah }}</td>
+                                            <td>{{ $data->supplier->nama_supplier }}</td>
+                                            <td>
+                                                <a href="{{ route('barangmasuk_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm">Ubah</a>
+                                                <a href="{{ route('barangmasuk_hapus', ['id' => $data->id]) }}" class="btn btn-primary btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

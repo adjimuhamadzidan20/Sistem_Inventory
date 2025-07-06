@@ -51,14 +51,17 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror  
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="exampleFormControlStok" class="form-label">Stok Barang</label>
                                         <input type="text" class="form-control" id="exampleFormControlStok" value="{{ $barang->stok_barang }}" name="jumlah">
                                         @error('jumlah')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ route('barang') }}" class="btn btn-primary">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

@@ -51,10 +51,11 @@ class KategoriController extends Controller
 
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
+        } else {
+            $data['kategori'] = $request->kategori;
+            Kategori::create($data);
         }
 
-        $data['kategori'] = $request->kategori;
-        Kategori::create($data);
         return redirect()->route('kategori');
     }
 
@@ -70,10 +71,11 @@ class KategoriController extends Controller
 
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
+        } else {
+            $data['kategori'] = $request->kategori;
+            Kategori::whereId($id)->update($data);
         }
 
-        $data['kategori'] = $request->kategori;
-        Kategori::whereId($id)->update($data);
         return redirect()->route('kategori');
     }
 

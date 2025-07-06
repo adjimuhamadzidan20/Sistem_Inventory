@@ -23,9 +23,8 @@ class SupplierController extends Controller
 
     public function create_supplier()
     {
-        $waktu = Carbon::now()->format('dmY');
-        $waktuSekarang = Carbon::today();
-        $lastSupplier = Supplier::whereDate('created_at', $waktuSekarang)
+        $waktu = Carbon::now()->format('Y');
+        $lastSupplier = Supplier::whereYear('created_at', $waktu)
             ->orderBy('kd_supplier', 'desc')
             ->first();
 
@@ -36,7 +35,7 @@ class SupplierController extends Controller
             $no = $lastNumber + 1;
         }
 
-        $kodeSupplier = 'SP-' . $waktu . '-' . str_pad($no, 3, '0', STR_PAD_LEFT);
+        $kodeSupplier = 'SP-10' . $waktu . '-' . str_pad($no, 3, '0', STR_PAD_LEFT);
         return view('halaman.create.create_supplier', [
             'title' => 'Tambah Supplier',
             'active' => 'Supplier',

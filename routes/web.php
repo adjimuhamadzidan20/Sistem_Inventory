@@ -7,6 +7,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\StokBarangController;
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // halaman dashboard
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -56,7 +59,18 @@ Route::post('/create_barang_proses', [StokBarangController::class, 'create_baran
 Route::put('/edit_barang_proses/{id}', [StokBarangController::class, 'edit_barang_proses'])->name('edit_barang_proses');
 Route::get('/hapus_barang/{id}', [StokBarangController::class, 'delete_barang'])->name('barang_hapus');
 
-
-
+// halaman barang masuk
 Route::get('/barang_masuk', [BarangmasukController::class, 'barang_masuk'])->name('barangmasuk');
+Route::get('/create_barangmasuk', [BarangmasukController::class, 'create_barangmasuk'])->name('barangmasuk_create');
+Route::get('/edit_barangmasuk/{id}', [BarangmasukController::class, 'edit_barangmasuk'])->name('barangmasuk_edit');
+Route::post('/create_barangmasuk_proses', [BarangmasukController::class, 'create_barangmasuk_proses'])->name('tambah_barangmasuk_proses');
+Route::put('/edit_barangmasuk_proses/{id}', [BarangmasukController::class, 'edit_barangmasuk_proses'])->name('edit_barangmasuk_proses');
+Route::get('/hapus_barangmasuk/{id}', [BarangmasukController::class, 'delete_barangmasuk'])->name('barangmasuk_hapus');
+
+// halaman barang keluar
 Route::get('/barang_keluar', [BarangkeluarController::class, 'barang_keluar'])->name('barangkeluar');
+Route::get('/create_barangkeluar', [BarangkeluarController::class, 'create_barangkeluar'])->name('barangkeluar_create');
+Route::get('/edit_barangkeluar/{id}', [BarangkeluarController::class, 'edit_barangkeluar'])->name('barangkeluar_edit');
+Route::post('/create_barangkeluar_proses', [BarangkeluarController::class, 'create_barangkeluar_proses'])->name('tambah_barangkeluar_proses');
+Route::put('/edit_barangkeluar_proses/{id}', [BarangkeluarController::class, 'edit_barangkeluar_proses'])->name('edit_barangkeluar_proses');
+Route::get('/hapus_barangkeluar/{id}', [BarangkeluarController::class, 'delete_barangkeluar'])->name('barangkeluar_hapus');

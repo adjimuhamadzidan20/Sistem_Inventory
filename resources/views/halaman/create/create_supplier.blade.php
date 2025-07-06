@@ -27,20 +27,23 @@
                                         @enderror   
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlNamaAlamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="exampleFormControlNamaAlamat" placeholder="Masukkan Alamat Supplier" name="alamat">
+                                        <label for="exampleFormControlAlamat" class="form-label">Alamat</label>
+                                        <input type="text" class="form-control" id="exampleFormControlAlamat" placeholder="Masukkan Alamat Supplier" name="alamat">
                                         @error('alamat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlNamaTelp" class="form-label">Telepon</label>
-                                        <input type="text" class="form-control" id="exampleFormControlNamaTelp" placeholder="Masukkan Telepon" name="telp">
+                                    <div class="mb-4">
+                                        <label for="exampleFormControlTelp" class="form-label">Telepon</label>
+                                        <input type="text" class="form-control" id="exampleFormControlTelp" placeholder="Masukkan Telepon" name="telp">
                                         @error('telp')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ route('supplier') }}" class="btn btn-primary">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

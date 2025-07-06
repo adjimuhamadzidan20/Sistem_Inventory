@@ -28,20 +28,23 @@
                                         @enderror   
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlNamaAlamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="exampleFormControlNamaAlamat" value="{{ $supplier->alamat }}" name="alamat">
+                                        <label for="exampleFormControlAlamat" class="form-label">Alamat</label>
+                                        <input type="text" class="form-control" id="exampleFormControlAlamat" value="{{ $supplier->alamat }}" name="alamat">
                                         @error('alamat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlNamaTelp" class="form-label">Telepon</label>
-                                        <input type="text" class="form-control" id="exampleFormControlNamaTelp" value="{{ $supplier->telepon }}" name="telp">
+                                    <div class="mb-4">
+                                        <label for="exampleFormControlTelp" class="form-label">Telepon</label>
+                                        <input type="text" class="form-control" id="exampleFormControlTelp" value="{{ $supplier->telepon }}" name="telp">
                                         @error('telp')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ route('supplier') }}" class="btn btn-primary">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

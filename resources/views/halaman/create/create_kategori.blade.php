@@ -15,14 +15,17 @@
                             <div class="col">
                                 <form action="{{ route('tambah_kategori_proses') }}" method="post">
                                     @csrf
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="exampleFormControlKategori" class="form-label">Nama Kategori</label>
                                         <input type="text" class="form-control" id="exampleFormControlKategori" placeholder="Masukkan Kategori" name="kategori">
                                         @error('kategori')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ route('kategori') }}" class="btn btn-primary">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

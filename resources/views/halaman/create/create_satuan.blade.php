@@ -15,14 +15,17 @@
                             <div class="col">
                                 <form action="{{ route('tambah_satuan_proses') }}" method="post">
                                     @csrf
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <label for="exampleFormControlSatuan" class="form-label">Satuan Barang</label>
                                         <input type="text" class="form-control" id="exampleFormControlSatuan" placeholder="Masukkan Satuan" name="satuan">
                                         @error('satuan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <div class="d-flex justify-content-between">
+                                        <a href="{{ route('satuan') }}" class="btn btn-primary">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

@@ -32,9 +32,8 @@ class StokBarangController extends Controller
         $dataSatuan = $modelSatuan->get();
 
         // untuk kode barang
-        $waktu = Carbon::now()->format('dmY');
-        $waktuSekarang = Carbon::today();
-        $lastBarang = Barang::whereDate('created_at', $waktuSekarang)
+        $waktu = Carbon::now()->format('Y');
+        $lastBarang = Barang::whereYear('created_at', $waktu)
             ->orderBy('kd_barang', 'desc')
             ->first();
 
@@ -45,9 +44,9 @@ class StokBarangController extends Controller
             $no = $lastNumber + 1;
         }
 
-        $kodeBarang = 'BRG-' . $waktu . '-' . str_pad($no, 3, '0', STR_PAD_LEFT);
+        $kodeBarang = 'BRG-15' . $waktu . '-' . str_pad($no, 3, '0', STR_PAD_LEFT);
         return view('halaman.create.create_barang', [
-            'title' => 'Stok Barang',
+            'title' => 'Tambah Barang',
             'active' => 'Stok_Barang',
             'kode' => $kodeBarang,
             'kategori' => $dataKategori,
@@ -65,7 +64,7 @@ class StokBarangController extends Controller
         $dataSatuan = $modelSatuan->get();
 
         return view('halaman.edit.edit_barang', [
-            'title' => 'Stok Barang',
+            'title' => 'Edit Barang',
             'active' => 'Stok_Barang',
             'barang' => $data,
             'kategori' => $dataKategori,
