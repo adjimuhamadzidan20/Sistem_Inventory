@@ -99,7 +99,7 @@ class StokBarangController extends Controller
         $data['stok_barang'] = $request->jumlah;
 
         Barang::create($data);
-        return redirect()->route('barang');
+        return redirect()->route('barang')->with('success', 'Data barang berhasil ditambahkan!');
     }
 
     public function edit_barang_proses(Request $request, $id)
@@ -129,13 +129,13 @@ class StokBarangController extends Controller
         $data['stok_barang'] = $request->jumlah;
 
         Barang::whereId($id)->update($data);
-        return redirect()->route('barang');
+        return redirect()->route('barang')->with('success', 'Data barang berhasil terubah!');
     }
 
     public function delete_barang($id)
     {
         $data = Barang::find($id);
         $data->delete();
-        return redirect()->route('barang');
+        return redirect()->route('barang')->with('success', 'Data barang berhasil terhapus!');
     }
 }

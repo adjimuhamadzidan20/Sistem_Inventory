@@ -8,7 +8,9 @@ use App\Models\Barangmasuk;
 use App\Models\Kategori;
 use App\Models\Satuan;
 use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -37,6 +39,18 @@ class DashboardController extends Controller
             'barang' => $dataBarang,
             'barangmasuk' => $dataBarangMasuk,
             'barangkeluar' => $dataBarangKeluar,
+        ]);
+    }
+
+    public function profil()
+    {
+        $tabelUser = DB::table('users');
+        $data = $tabelUser->where('name', auth()->user()->name)->first();
+
+        return view('halaman.data_user', [
+            'title' => 'Profil',
+            'active' => 'Profil',
+            'user' => $data
         ]);
     }
 }

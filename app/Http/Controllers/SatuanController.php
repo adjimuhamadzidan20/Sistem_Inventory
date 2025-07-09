@@ -55,7 +55,7 @@ class SatuanController extends Controller
 
         $data['satuan'] = $request->satuan;
         Satuan::create($data);
-        return redirect()->route('satuan');
+        return redirect()->route('satuan')->with('success', 'Satuan berhasil ditambahkan!');
     }
 
     public function edit_satuan_proses(Request $request, $id)
@@ -74,13 +74,13 @@ class SatuanController extends Controller
 
         $data['satuan'] = $request->satuan;
         Satuan::whereId($id)->update($data);
-        return redirect()->route('satuan');
+        return redirect()->route('satuan')->with('success', 'Satuan berhasil terubah!');
     }
 
     public function delete_satuan($id)
     {
         $data = Satuan::find($id);
         $data->delete();
-        return redirect()->route('satuan');
+        return redirect()->route('satuan')->with('success', 'Satuan berhasil terhapus!');
     }
 }

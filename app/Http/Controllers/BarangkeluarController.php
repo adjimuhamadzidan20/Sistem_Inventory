@@ -104,7 +104,7 @@ class BarangkeluarController extends Controller
             $tabelBarang->where('id', $request->barang)->update(['stok_barang' => $jumlah]);
         }
 
-        return redirect()->route('barangkeluar');
+        return redirect()->route('barangkeluar')->with('success', 'Data barang keluar berhasil ditambahkan!');;
     }
 
     public function edit_barangkeluar_proses(Request $request, $id)
@@ -157,13 +157,13 @@ class BarangkeluarController extends Controller
             Barangkeluar::whereId($id)->update($data);
         }
 
-        return redirect()->route('barangkeluar');
+        return redirect()->route('barangkeluar')->with('success', 'Data barang keluar berhasil terubah!');;
     }
 
     public function delete_barangkeluar($id)
     {
         $data = Barangkeluar::find($id);
         $data->delete();
-        return redirect()->route('barangkeluar');
+        return redirect()->route('barangkeluar')->with('success', 'Data barang keluar berhasil terhapus!');;
     }
 }

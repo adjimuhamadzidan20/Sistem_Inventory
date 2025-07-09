@@ -69,12 +69,12 @@
                     <p>Barang Keluar</p>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="">
                     <i class="fas fa-layer-group"></i>
                     <p>Laporan</p>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

@@ -13,7 +13,8 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span>Tabel Barang Keluar</span>
                         <a href="{{ route('barangkeluar_create') }}" class="btn btn-primary">
-                            <i class="fa fa-plus me-1"></i>Tambah
+                            <i class="fa fa-plus me-1"></i>
+                            Tambah data
                         </a>
                     </div>
                     <div class="card-body">
@@ -23,7 +24,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kode</th>
-                                        <th>Tanggal Keluar</th>
+                                        <th>Tgl Keluar</th>
+                                        <th>Waktu</th>
                                         <th>Nama Barang</th>
                                         <th>Jumlah</th>
                                         <th>Tujuan</th>
@@ -36,13 +38,34 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->kd_barangkeluar }}</td>
                                             <td>{{ $data->tanggal_keluar }}</td>
+                                            <td>{{ $data->created_at->format('H:i') }}</td>
                                             <td>{{ $data->barang->nama_barang }}</td>
                                             <td>{{ $data->jumlah }}</td>
                                             <td>{{ $data->tujuan }}</td>
                                             <td>
                                                 <a href="{{ route('barangkeluar_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm">Ubah</a>
-                                                <a href="{{ route('barangkeluar_hapus', ['id' => $data->id]) }}" class="btn btn-primary btn-sm">Delete</a>
+
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}">Delete</button>
                                             </td>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus data barang keluar</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Anda yakin ingin menghapus {{ $data->kd_barangkeluar }}?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-black" data-bs-dismiss="modal">Batal</button>
+                                                            <a href="{{ route('barangkeluar_hapus', ['id' => $data->id]) }}" class="btn btn-primary">Hapus</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -53,5 +76,4 @@
             </div>
         </div>
     </div>
-
 @endsection

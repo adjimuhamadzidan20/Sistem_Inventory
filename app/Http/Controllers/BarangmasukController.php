@@ -112,7 +112,7 @@ class BarangmasukController extends Controller
             $tabelBarang->where('id', $request->barang)->update(['stok_barang' => $jumlah]);
         }
 
-        return redirect()->route('barangmasuk');
+        return redirect()->route('barangmasuk')->with('success', 'Data barang masuk berhasil ditambahkan!');;
     }
 
     public function edit_barangmasuk_proses(Request $request, $id)
@@ -164,13 +164,13 @@ class BarangmasukController extends Controller
             Barangmasuk::whereId($id)->update($data);
         }
 
-        return redirect()->route('barangmasuk');
+        return redirect()->route('barangmasuk')->with('success', 'Data barang masuk berhasil terubah!');;
     }
 
     public function delete_barangmasuk($id)
     {
         $data = Barangmasuk::find($id);
         $data->delete();
-        return redirect()->route('barangmasuk');
+        return redirect()->route('barangmasuk')->with('success', 'Data barang berhasil terhapus!');;
     }
 }

@@ -78,7 +78,7 @@ class SupplierController extends Controller
         $data['telepon'] = $request->telp;
 
         Supplier::create($data);
-        return redirect()->route('supplier');
+        return redirect()->route('supplier')->with('success', 'Supplier berhasil ditambahkan!');
     }
 
     public function edit_supplier_proses(Request $request, $id)
@@ -105,13 +105,13 @@ class SupplierController extends Controller
         $data['telepon'] = $request->telp;
 
         Supplier::whereId($id)->update($data);
-        return redirect()->route('supplier');
+        return redirect()->route('supplier')->with('success', 'Supplier berhasil terubah!');
     }
 
     public function delete_supplier($id)
     {
         $data = Supplier::find($id);
         $data->delete();
-        return redirect()->route('supplier');
+        return redirect()->route('supplier')->with('success', 'Supplier berhasil terhapus!');
     }
 }

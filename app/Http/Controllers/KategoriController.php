@@ -56,7 +56,7 @@ class KategoriController extends Controller
             Kategori::create($data);
         }
 
-        return redirect()->route('kategori');
+        return redirect()->route('kategori')->with('success', 'Kategori berhasil ditambahkan!');
     }
 
     public function edit_kategori_proses(Request $request, $id)
@@ -76,13 +76,13 @@ class KategoriController extends Controller
             Kategori::whereId($id)->update($data);
         }
 
-        return redirect()->route('kategori');
+        return redirect()->route('kategori')->with('success', 'Kategori berhasil terubah!');
     }
 
     public function delete_kategori($id)
     {
         $data = Kategori::find($id);
         $data->delete();
-        return redirect()->route('kategori');
+        return redirect()->route('kategori')->with('success', 'Kategori berhasil terhapus!');
     }
 }

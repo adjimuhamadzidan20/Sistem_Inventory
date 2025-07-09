@@ -68,6 +68,9 @@
     <script src="<?= url('template'); ?>/assets/js/kaiadmin.min.js"></script>
     <!-- Fonts and icons -->
     <script src="<?= url('template'); ?>/assets/js/plugin/webfont/webfont.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script>
         WebFont.load({
             google: {
@@ -92,6 +95,36 @@
       $(document).ready(function () {
         $("#basic-datatables").DataTable({});
       })
+    </script>
+
+    @if ($pesan = Session::get('success'))
+        <script>
+            Swal.fire({
+                title: "Berhasil!",
+                text: "{{ $pesan }}",
+                icon: "success",
+                confirmButtonColor: "#007BFF"
+            });
+        </script>          
+    @endif
+
+    <script>
+        $('#editProfil').on('show.bs.modal', function(event) {
+            let button = $(event.relatedTarget)
+            let modal = $(this)
+
+            let id = button.data('id')
+            let nama = button.data('nama')
+            let email = button.data('email')
+            let gender = button.data('gender')
+            let username = button.data('username')
+
+            modal.find('#id').val(id)
+            modal.find('#nama_user').val(nama)
+            modal.find('#email').val(email)
+            modal.find('#jenis_kelamin').val(gender)
+            modal.find('#username').val(username)
+        })
     </script>
    
 </body>
