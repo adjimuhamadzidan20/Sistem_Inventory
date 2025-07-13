@@ -17,7 +17,7 @@
                                     <div class="card-body box-profile py-4 d-flex justify-content-center align-items-center">
                                         <div>
                                             <div class="text-center">
-                                                <img class="profile-user-img img-fluid rounded-circle mb-4" src="<?= url('template'); ?>/assets/img/profile.jpg" alt="User profile picture">
+                                                <img class="profile-user-img img-fluid rounded-circle mb-4" src="<?= url('template'); ?>/assets/img/user.png" alt="User profile picture" width="128">
                                             </div>
                                             <h3 class="profile-username text-center">{{ auth()->user()->name }}</h3>
                                             <p class="text-muted text-center">Administrator</p>
@@ -33,7 +33,7 @@
                                     <div class="card-body py-4">
                                         <div class="d-flex justify-content-between mb-4">
                                             <span class="fw-bold">Nama Anda</span>
-                                            <span data-id="{{ $user->id }}" data-nama="{{ $user->name }}">{{ $user->name }}</span>
+                                            <span data-id="" data-nama="{{ $user->name }}">{{ $user->name }}</span>
                                         </div>
                                         <div class="d-flex justify-content-between mb-4">
                                             <span class="fw-bold">Email</span>
@@ -49,57 +49,18 @@
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex justify-content-end py-3">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfil">
+                                        <a href="{{ route('user_edit_pw', ['id' => $user->id]) }}" class="btn btn-primary me-2">
+                                            Ganti Password
+                                        </a>
+                                        <a href="{{ route('user_edit', ['id' => $user->id]) }}" class="btn btn-primary">
                                             Edit Profile
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="editProfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Edit data profile</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="" method="post">
-                    @csrf
-                    <div class="modal-body">
-                        <input type="text" class="form-control" id="id" name="id" hidden>
-                        <div class="mb-3">
-                            <label for="nama_user" class="form-label">Nama Anda</label>
-                            <input type="text" class="form-control" id="nama_user" name="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                            <select class="form-select" aria-label="Default select example" id="jenis_kelamin" name="jenis_kelamin">
-                                <option value="" selected>-- Pilih Jenis Kelamin --</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Ganti Username</label>
-                            <input type="text" class="form-control" id="username" name="username">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-black" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

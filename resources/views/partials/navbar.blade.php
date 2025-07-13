@@ -30,9 +30,9 @@
                 aria-expanded="false">
                 <div class="avatar-sm">
                     <img
-                        src="<?= url('template'); ?>/assets/img/profile.jpg"
+                        src="<?= url('template'); ?>/assets/img/user.png"
                         alt="profil"
-                        class="avatar-img rounded" />
+                        class="avatar-img rounded" width="128"/>
                 </div>
                 <span class="profile-username">
                     <span class="op-7">Hi,</span>
@@ -45,9 +45,9 @@
                         <div class="user-box">
                             <div class="avatar-lg">
                                 <img
-                                    src="<?= url('template'); ?>/assets/img/profile.jpg"
+                                    src="<?= url('template'); ?>/assets/img/user.png"
                                     alt="image profile"
-                                    class="avatar-img rounded"/>
+                                    class="avatar-img rounded" width="128"/>
                             </div>
                             <div class="u-text">
                                 <h4>{{ auth()->user()->name }}</h4>

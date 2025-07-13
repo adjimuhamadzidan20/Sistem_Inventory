@@ -9,7 +9,10 @@ use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\BarangkeluarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ExportfileController;
+
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +37,10 @@ Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->m
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::get('/profil_user', [DashboardController::class, 'profil'])->name('profil')->middleware('auth');
+Route::get('/edit_user/{id}', [DashboardController::class, 'profil_edit'])->name('user_edit')->middleware('auth');
+Route::get('/edit_user_pw/{id}', [DashboardController::class, 'profil_edit_password'])->name('user_edit_pw')->middleware('auth');
+Route::put('/edit_user_proses/{id}', [DashboardController::class, 'profil_edit_proses'])->name('edit_user_proses');
+Route::put('/edit_userpw_proses/{id}', [DashboardController::class, 'profil_editpw_proses'])->name('edit_userpw_proses');
 
 // halaman kategori
 Route::get('/kategori', [KategoriController::class, 'kategori'])->name('kategori')->middleware('auth');
@@ -82,3 +89,10 @@ Route::get('/edit_barangkeluar/{id}', [BarangkeluarController::class, 'edit_bara
 Route::post('/create_barangkeluar_proses', [BarangkeluarController::class, 'create_barangkeluar_proses'])->name('tambah_barangkeluar_proses');
 Route::put('/edit_barangkeluar_proses/{id}', [BarangkeluarController::class, 'edit_barangkeluar_proses'])->name('edit_barangkeluar_proses');
 Route::get('/hapus_barangkeluar/{id}', [BarangkeluarController::class, 'delete_barangkeluar'])->name('barangkeluar_hapus');
+
+// halaman export file
+Route::get('/export_file', [ExportfileController::class, 'export_supplier'])->name('export_file')->middleware('auth');
+Route::get('/export_supplier', [ExportfileController::class, 'export_supplier'])->name('export_supplier')->middleware('auth');
+Route::get('/export_barang', [ExportfileController::class, 'export_barang'])->name('export_barang')->middleware('auth');
+Route::get('/export_barangmasuk', [ExportfileController::class, 'export_barangmasuk'])->name('export_barangmasuk')->middleware('auth');
+Route::get('/export_barangkeluar', [ExportfileController::class, 'export_barangkeluar'])->name('export_barangkeluar')->middleware('auth');

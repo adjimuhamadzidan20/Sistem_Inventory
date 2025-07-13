@@ -69,12 +69,12 @@
                     <p>Barang Keluar</p>
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a href="">
+            <li class="nav-item {{ ($active == 'Export') ? 'active' : '' }}">
+                <a href="{{ route('export_file') }}">
                     <i class="fas fa-layer-group"></i>
-                    <p>Laporan</p>
+                    <p>Export Data</p>
                 </a>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </div>

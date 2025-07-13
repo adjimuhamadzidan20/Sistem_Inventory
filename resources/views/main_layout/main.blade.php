@@ -93,7 +93,30 @@
 
     <script>
       $(document).ready(function () {
-        $("#basic-datatables").DataTable({});
+        $("#barangmasuk-datatables").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $("#barangkeluar-datatables").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $("#barang-datatables").DataTable({
+            "searching": false
+        });
+        $("#supplier-datatables").DataTable({
+            "searching": false
+        });
       })
     </script>
 
@@ -108,24 +131,16 @@
         </script>          
     @endif
 
-    <script>
-        $('#editProfil').on('show.bs.modal', function(event) {
-            let button = $(event.relatedTarget)
-            let modal = $(this)
-
-            let id = button.data('id')
-            let nama = button.data('nama')
-            let email = button.data('email')
-            let gender = button.data('gender')
-            let username = button.data('username')
-
-            modal.find('#id').val(id)
-            modal.find('#nama_user').val(nama)
-            modal.find('#email').val(email)
-            modal.find('#jenis_kelamin').val(gender)
-            modal.find('#username').val(username)
-        })
-    </script>
+    @if ($pesan = Session::get('failed'))
+        <script>
+            Swal.fire({
+                title: "Gagal!",
+                text: "{{ $pesan }}",
+                icon: "error",
+                confirmButtonColor: "#007BFF"
+            });
+        </script>          
+    @endif
    
 </body>
 
