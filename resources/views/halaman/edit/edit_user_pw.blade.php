@@ -4,7 +4,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h3 class="fw-bold mb-3">Ganti Password</h3>
+                <h3 class="fw-bold mb-3"><i class="fas fa-edit me-1"></i> Ganti Password</h3>
             </div>
         </div>
         <div class="row">
@@ -31,8 +31,8 @@
                                         @enderror   
                                     </div>
                                     <div class="d-flex justify-content-between">
-                                        <a href="{{ route('profil') }}" class="btn btn-primary">Kembali</a>
-                                        <button type="submit" class="btn btn-primary">Ganti</button>
+                                        <a href="{{ route('profil') }}" class="btn btn-primary btn-sm">Kembali</a>
+                                        <button type="submit" class="btn btn-primary btn-sm">Ganti</button>
                                     </div>
                                 </form>
                             </div>

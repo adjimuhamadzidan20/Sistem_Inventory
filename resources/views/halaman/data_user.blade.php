@@ -4,7 +4,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h3 class="fw-bold mb-3">Data Profile</h3>
+                <h3 class="fw-bold mb-3"><i class="far fa-user me-1"></i> Data Profile</h3>
             </div>
         </div>
         <div class="row">
@@ -49,11 +49,11 @@
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex justify-content-end py-3">
-                                        <a href="{{ route('user_edit_pw', ['id' => $user->id]) }}" class="btn btn-primary me-2">
-                                            Ganti Password
+                                        <a href="{{ route('user_edit_pw', ['id' => $user->id]) }}" class="btn btn-primary btn-sm me-2">
+                                            <i class="fas fa-edit me-1"></i> Ganti Password
                                         </a>
-                                        <a href="{{ route('user_edit', ['id' => $user->id]) }}" class="btn btn-primary">
-                                            Edit Profile
+                                        <a href="{{ route('user_edit', ['id' => $user->id]) }}" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-edit me-1"></i> Edit Profile
                                         </a>
                                     </div>
                                 </div>

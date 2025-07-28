@@ -35,19 +35,19 @@
             </li>
             <li class="nav-item {{ ($active == 'Kategori') ? 'active' : '' }}">
                 <a href="{{ route('kategori') }}">
-                    <i class="fas fa-layer-group"></i>
+                    <i class="fas fa-list-ul"></i>
                     <p>Data Kategori</p>
                 </a>
             </li>
             <li class="nav-item {{ ($active == 'Satuan') ? 'active' : '' }}">
                 <a href="{{ route('satuan') }}">
-                    <i class="fas fa-layer-group"></i>
+                    <i class="fas fa-tags"></i>
                     <p>Data Satuan</p>
                 </a>
             </li>
             <li class="nav-item {{ ($active == 'Supplier') ? 'active' : '' }}">
                 <a href="{{ route('supplier') }}">
-                    <i class="fas fa-layer-group"></i>
+                    <i class="fas fa-industry"></i>
                     <p>Data Supplier</p>
                 </a>
             </li>
@@ -71,8 +71,8 @@
             </li>
             <li class="nav-item {{ ($active == 'Export') ? 'active' : '' }}">
                 <a href="{{ route('export_file') }}">
-                    <i class="fas fa-layer-group"></i>
-                    <p>Export Data</p>
+                    <i class="fas fa-print"></i>
+                    <p>Ekspor Data</p>
                 </a>
             </li>
         </ul>

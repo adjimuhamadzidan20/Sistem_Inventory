@@ -4,7 +4,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h3 class="fw-bold mb-3">Edit Data Barang Keluar</h3>
+                <h3 class="fw-bold mb-3"><i class="fas fa-edit me-1"></i> Edit Data Barang Keluar</h3>
             </div>
         </div>
         <div class="row">
@@ -54,8 +54,8 @@
                                         @enderror   
                                     </div>
                                     <div class="d-flex justify-content-between">
-                                        <a href="{{ route('barangkeluar') }}" class="btn btn-primary">Kembali</a>
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <a href="{{ route('barangkeluar') }}" class="btn btn-primary btn-sm">Kembali</a>
+                                        <button type="submit" class="btn btn-primary btn-sm">Edit</button>
                                     </div>
                                 </form>
                             </div>

@@ -93,10 +93,19 @@
 
     <script>
       $(document).ready(function () {
+        $("#basic-datatables").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
         $("#barangmasuk-datatables").DataTable({
             "paging": true,
             "lengthChange": true,
-            "searching": false,
+            "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false,
@@ -105,17 +114,17 @@
         $("#barangkeluar-datatables").DataTable({
             "paging": true,
             "lengthChange": true,
-            "searching": false,
+            "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false,
             "responsive": true,
         });
         $("#barang-datatables").DataTable({
-            "searching": false
+            "searching": true
         });
         $("#supplier-datatables").DataTable({
-            "searching": false
+            "searching": true
         });
       })
     </script>

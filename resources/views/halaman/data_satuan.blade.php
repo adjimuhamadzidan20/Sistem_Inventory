@@ -4,7 +4,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h3 class="fw-bold mb-3">Data Satuan</h3>
+                <h3 class="fw-bold mb-3"><i class="fas fa-tags me-1"></i> Data Satuan</h3>
             </div>
         </div>
         <div class="row">
@@ -12,8 +12,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span>Tabel Satuan Barang</span>
-                        <a href="{{ route('satuan_create') }}" class="btn btn-primary">
-                            <i class="fa fa-plus me-1"></i>
+                        <a href="{{ route('satuan_create') }}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-plus me-1"></i>
                             Tambah data
                         </a>
                     </div>
@@ -25,7 +25,7 @@
                                         <th>No</th>
                                         <th>Satuan</th>
                                         <th>Created</th>
-                                        <th>Opsi</th>
+                                        <th class="text-center">Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,10 +34,10 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->satuan }}</td>
                                             <td>{{ $data->created_at }}</td>
-                                            <td>
-                                                <a href="{{ route('satuan_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm">Ubah</a>
+                                            <td class="text-center">
+                                                <a href="{{ route('satuan_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
 
-                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}">Delete</button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}"><i class="fas fa-trash"></i></button>
                                             </td>
 
                                             <!-- Modal -->
@@ -45,15 +45,15 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus data satuan</h1>
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fas fa-trash me-1"></i> Hapus data satuan</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             Anda yakin ingin menghapus {{ $data->satuan }}?
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-black" data-bs-dismiss="modal">Batal</button>
-                                                            <a href="{{ route('satuan_hapus', ['id' => $data->id]) }}" class="btn btn-primary">Hapus</a>
+                                                            <button type="button" class="btn btn-black btn-sm" data-bs-dismiss="modal">Batal</button>
+                                                            <a href="{{ route('satuan_hapus', ['id' => $data->id]) }}" class="btn btn-primary btn-sm">Hapus</a>
                                                         </div>
                                                     </div>
                                                 </div>

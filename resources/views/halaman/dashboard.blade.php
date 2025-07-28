@@ -4,7 +4,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h3 class="fw-bold mb-3">Dashboard</h3>
+                <h3 class="fw-bold mb-4 text-uppercase">SELAMAT DATANG, {{ auth()->user()->name }}!</h3>
             </div>
         </div>
         <div class="row">
@@ -15,7 +15,7 @@
                             <div class="col-icon">
                                 <div
                                     class="icon-big text-center icon-primary bubble-shadow-small">
-                                    <i class="fas fa-layer-group"></i>
+                                    <i class="fas fa-list-ul"></i>
                                 </div>
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
@@ -35,7 +35,7 @@
                             <div class="col-icon">
                                 <div
                                     class="icon-big text-center icon-primary bubble-shadow-small">
-                                    <i class="fas fa-layer-group"></i>
+                                    <i class="fas fa-tags"></i>
                                 </div>
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
@@ -55,7 +55,7 @@
                             <div class="col-icon">
                                 <div
                                     class="icon-big text-center icon-primary bubble-shadow-small">
-                                    <i class="fas fa-layer-group"></i>
+                                    <i class="fas fa-industry"></i>
                                 </div>
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">

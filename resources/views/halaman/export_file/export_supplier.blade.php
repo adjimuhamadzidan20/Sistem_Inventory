@@ -2,18 +2,18 @@
 
 @section('export-section')
     <div>
-        <div class="d-flex justify-content-end mb-4">
-            <a href="" class="btn btn-primary btn-sm me-1">
-                <i class="fa fa-print me-1"></i>
+        <div class="d-flex justify-content-start mb-4">
+            <a href="{{ route('export_supplier') }}?export_excel=supplier" class="btn btn-primary btn-sm me-1">
+                <i class="fas fa-file-excel me-1"></i>
                 Cetak Excel
             </a>
-            <a href="{{ route('export_file') }}?export=supplier" class="btn btn-primary btn-sm">
-                <i class="fa fa-print me-1"></i>
+            <a href="{{ route('export_supplier') }}?export=supplier" class="btn btn-primary btn-sm">
+                <i class="fas fa-file-pdf me-1"></i>
                 Cetak PDF
             </a>
         </div>
         
-        <div class="table-responsive">
+        <div class="border rounded px-2 py-3">
             <table class="display table table-striped table-hover" id="supplier-datatables">
                 <thead>
                     <tr>
