@@ -92,11 +92,11 @@ class BarangmasukController extends Controller
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         } else {
-            $data['kd_barangmasuk'] = $request->kd_barangmasuk;
-            $data['tanggal_masuk'] = $request->tgl_masuk;
-            $data['barang_id'] = $request->barang;
-            $data['jumlah'] = $request->jumlah;
-            $data['supplier_id'] = $request->supplier;
+            $data['kd_barangmasuk'] = htmlspecialchars($request->kd_barangmasuk);
+            $data['tanggal_masuk'] = htmlspecialchars($request->tgl_masuk);
+            $data['barang_id'] = htmlspecialchars($request->barang);
+            $data['jumlah'] = htmlspecialchars($request->jumlah);
+            $data['supplier_id'] = htmlspecialchars($request->supplier);
 
             $modelBarang = new Barang();
             $dataBarang = $modelBarang->find($request->barang);
@@ -134,10 +134,10 @@ class BarangmasukController extends Controller
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         } else {
-            $data['kd_barangmasuk'] = $request->kd_barangmasuk;
-            $data['tanggal_masuk'] = $request->tgl_masuk;
-            $data['barang_id'] = $request->barang;
-            $data['supplier_id'] = $request->supplier;
+            $data['kd_barangmasuk'] = htmlspecialchars($request->kd_barangmasuk);
+            $data['tanggal_masuk'] = htmlspecialchars($request->tgl_masuk);
+            $data['barang_id'] = htmlspecialchars($request->barang);
+            $data['supplier_id'] = htmlspecialchars($request->supplier);
 
             if ($request->jumlah) {
                 $data['jumlah'] = $request->jumlah;

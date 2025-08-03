@@ -76,13 +76,14 @@ class StokBarangController extends Controller
     {
         $pesanValidasi = [
             'nama_barang.required' => 'Nama barang tidak boleh kosong!',
+            'nama_barang.unique' => 'Nama barang sudah ada!',
             'kategori.required' => 'Kategori harus dipilih!',
             'satuan.required' => 'Satuan harus dipilih!',
             'jumlah.required' => 'Jumlah tidak boleh kosong!',
         ];
 
         $validasi = Validator::make($request->all(), [
-            'nama_barang' => 'required',
+            'nama_barang' => 'required|unique:barangs,nama_barang',
             'kategori' => 'required',
             'satuan' => 'required',
             'jumlah' => 'required',
@@ -92,11 +93,11 @@ class StokBarangController extends Controller
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $data['kd_barang'] = $request->kd_barang;
-        $data['nama_barang'] = $request->nama_barang;
-        $data['kategori_id'] = $request->kategori;
-        $data['satuan_id'] = $request->satuan;
-        $data['stok_barang'] = $request->jumlah;
+        $data['kd_barang'] = htmlspecialchars($request->kd_barang);
+        $data['nama_barang'] = htmlspecialchars($request->nama_barang);
+        $data['kategori_id'] = htmlspecialchars($request->kategori);
+        $data['satuan_id'] = htmlspecialchars($request->satuan);
+        $data['stok_barang'] = htmlspecialchars($request->jumlah);
 
         Barang::create($data);
         return redirect()->route('barang')->with('success', 'Data barang berhasil ditambahkan!');
@@ -122,11 +123,11 @@ class StokBarangController extends Controller
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $data['kd_barang'] = $request->kd_barang;
-        $data['nama_barang'] = $request->nama_barang;
-        $data['kategori_id'] = $request->kategori;
-        $data['satuan_id'] = $request->satuan;
-        $data['stok_barang'] = $request->jumlah;
+        $data['kd_barang'] = htmlspecialchars($request->kd_barang);
+        $data['nama_barang'] = htmlspecialchars($request->nama_barang);
+        $data['kategori_id'] = htmlspecialchars($request->kategori);
+        $data['satuan_id'] = htmlspecialchars($request->satuan);
+        $data['stok_barang'] = htmlspecialchars($request->jumlah);
 
         Barang::whereId($id)->update($data);
         return redirect()->route('barang')->with('success', 'Data barang berhasil terubah!');

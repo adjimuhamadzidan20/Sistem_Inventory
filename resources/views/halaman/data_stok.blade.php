@@ -22,24 +22,24 @@
                             <table id="basic-datatables" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th class="text-center">No</th>
                                         <th>KD Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Kategori</th>
-                                        <th>Satuan</th>
-                                        <th>Stok Barang</th>
+                                        <th class="text-center">Satuan</th>
+                                        <th class="text-center">Stok Barang</th>
                                         <th class="text-center">Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($barang as $data)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
                                             <td>{{ $data->kd_barang }}</td>
                                             <td>{{ $data->nama_barang }}</td>
                                             <td>{{ $data->kategori->kategori }}</td>
-                                            <td>{{ $data->satuan->satuan }}</td>
-                                            <td>{{ $data->stok_barang }}</td>
+                                            <td class="text-center">{{ $data->satuan->satuan }}</td>
+                                            <td class="text-center">{{ $data->stok_barang }}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('barang_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                                                 

@@ -17,7 +17,7 @@
             <table class="display table table-striped table-hover" id="supplier-datatables">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th class="text-center">No</th>
                         <th>KD Supplier</th>
                         <th>Nama Supplier</th>
                         <th>Alamat</th>
@@ -27,7 +27,7 @@
                 <tbody>
                     @foreach ($supplier as $data)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $data->kd_supplier }}</td>
                             <td>{{ $data->nama_supplier }}</td>
                             <td>{{ $data->alamat }}</td>

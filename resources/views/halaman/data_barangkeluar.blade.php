@@ -22,12 +22,12 @@
                             <table id="basic-datatables" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th class="text-center">No</th>
                                         <th>Kode</th>
-                                        <th>Tgl Keluar</th>
-                                        <th>Waktu</th>
+                                        <th class="text-center">Tgl Keluar</th>
+                                        <th class="text-center">Waktu</th>
                                         <th>Nama Barang</th>
-                                        <th>Jumlah</th>
+                                        <th class="text-center">Jumlah</th>
                                         <th>Tujuan</th>
                                         <th class="text-center">Opsi</th>
                                     </tr>
@@ -35,12 +35,12 @@
                                 <tbody>
                                     @foreach ($barangkeluar as $data)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
                                             <td>{{ $data->kd_barangkeluar }}</td>
-                                            <td>{{ $data->tanggal_keluar }}</td>
-                                            <td>{{ $data->created_at->format('H:i') }}</td>
+                                            <td class="text-center">{{ $data->tanggal_keluar }}</td>
+                                            <td class="text-center">{{ $data->created_at->format('H:i') }}</td>
                                             <td>{{ $data->barang->nama_barang }}</td>
-                                            <td>{{ $data->jumlah }}</td>
+                                            <td class="text-center">{{ $data->jumlah }}</td>
                                             <td>{{ $data->tujuan }}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('barangkeluar_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

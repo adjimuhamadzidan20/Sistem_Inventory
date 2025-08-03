@@ -17,7 +17,7 @@
                                     @csrf
                                     <div class="mb-4">
                                         <label for="exampleFormControlSatuan" class="form-label">Satuan Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlSatuan" placeholder="Masukkan Satuan" name="satuan">
+                                        <input type="text" class="form-control" id="exampleFormControlSatuan" placeholder="Masukkan Satuan" name="satuan" value="{{ old('satuan') }}">
                                         @error('satuan')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   

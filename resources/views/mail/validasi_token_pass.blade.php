@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>SI Inventory | Forgot Password</title>
+    <title>SI Inventory | Validasi Password</title>
 
     <link rel="icon" href="<?= url('template'); ?>/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
     <!-- Fontfaces CSS-->
@@ -43,34 +43,26 @@
                         <div class="login-wrap">
                             <div class="login-content">
                                 <div class="login-logo mb-3">
-                                    <a href="{{ route('register') }}" class="mb-2">
-                                       <h3 class="text-secondary">SI INVENTORY</h3>
-                                    </a>
-                                    <h6 class="text-secondary">FORGOT PASSWORD</h6>
+                                    <h6 class="text-secondary">VALIDASI PASSWORD</h6>
                                 </div>
                                 <div class="dropdown-divider mb-3"></div>
                                 <div class="login-form">
-                                    <form action="{{ route('forgot_proses') }}" method="post">
+                                    <form action="{{ route('validasi_proses') }}" method="post">
                                         @csrf
+                                        <input type="hidden" name="token" value="{{ $token }}">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label>Email Anda</label>
-                                                    <input class="au-input au-input--full" type="text" name="email" placeholder="Masukkan Email Anda" value="{{ old('email') }}">
-                                                    @error('email')
+                                                    <label>Password Baru</label>
+                                                    <input class="au-input au-input--full" type="text" name="password_baru" placeholder="Masukkan Password Baru Anda" value="{{ old('password_baru') }}">
+                                                    @error('password_baru')
                                                         <small class="text-danger">{{ $message }}</small>
                                                     @enderror
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="au-btn au-btn--block btn-primary mt-2" type="submit">Kirim</button>
+                                        <button class="au-btn au-btn--block btn-primary mt-2" type="submit">Selesai</button>
                                     </form>
-                                    <div class="register-link">
-                                        <p>
-                                            Do you have account?
-                                            <a href="{{ route('login') }}" class="text-primary">Log in Here</a>
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -87,28 +79,18 @@
     <script src="<?= url('template'); ?>/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="<?= url('template'); ?>/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS -->
-    <script src="<?= url('template'); ?>/vendor/slick/slick.min.js"></script>
-    <script src="<?= url('template'); ?>/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="<?= url('template'); ?>/vendor/slick/slick.min.js">
+    </script>
+    <script src="<?= url('template'); ?>/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
     <script src="<?= url('template'); ?>/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="<?= url('template'); ?>/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="<?= url('template'); ?>/vendor/counter-up/jquery.counterup.min.js">
+    </script>
     <script src="<?= url('template'); ?>/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="<?= url('template'); ?>/vendor/select2/select2.min.js"></script>
 
     <!-- Main JS-->
     <script src="<?= url('template'); ?>/js/main.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    @if ($pesan = Session::get('success'))
-        <script>
-            Swal.fire({
-                title: "Validasi Email!",
-                text: "{{ $pesan }}",
-                icon: "success",
-                confirmButtonColor: "#007BFF"
-            });
-        </script>          
-    @endif
 
 </body>
 

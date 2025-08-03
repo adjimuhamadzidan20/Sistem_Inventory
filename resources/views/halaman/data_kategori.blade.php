@@ -22,7 +22,7 @@
                             <table id="basic-datatables" class="display table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th class="text-center">No</th>
                                         <th>Nama Kategori</th>
                                         <th>Created</th>
                                         <th class="text-center">Opsi</th>
@@ -31,7 +31,7 @@
                                 <tbody>
                                     @foreach ($kategori as $data)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
                                             <td>{{ $data->kategori }}</td>
                                             <td>{{ $data->created_at }}</td>
                                             <td class="text-center">

@@ -21,21 +21,21 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlNamaSupplier" class="form-label">Nama Supplier</label>
-                                        <input type="text" class="form-control" id="exampleFormControlNamaSupplier" placeholder="Masukkan Nama Supplier" name="nama_supplier">
+                                        <input type="text" class="form-control" id="exampleFormControlNamaSupplier" placeholder="Masukkan Nama Supplier" name="nama_supplier" value="{{ old('nama_supplier') }}">
                                         @error('nama_supplier')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlAlamat" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="exampleFormControlAlamat" placeholder="Masukkan Alamat Supplier" name="alamat">
+                                        <input type="text" class="form-control" id="exampleFormControlAlamat" placeholder="Masukkan Alamat Supplier" name="alamat" value="{{ old('alamat') }}">
                                         @error('alamat')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleFormControlTelp" class="form-label">Telepon</label>
-                                        <input type="text" class="form-control" id="exampleFormControlTelp" placeholder="Masukkan Telepon" name="telp">
+                                        <input type="text" class="form-control" id="exampleFormControlTelp" placeholder="Masukkan Telepon" name="telp" value="{{ old('telp') }}">
                                         @error('telp')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   

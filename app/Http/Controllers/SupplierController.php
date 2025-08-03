@@ -58,24 +58,26 @@ class SupplierController extends Controller
     {
         $pesanValidasi = [
             'nama_supplier.required' => 'Nama supplier tidak boleh kosong!',
+            'nama_supplier.unique' => 'Nama supplier sudah ada!',
             'alamat.required' => 'Alamat tidak boleh kosong!',
             'telp.required' => 'Telp tidak boleh kosong!',
+            'telp.unique' => 'Telp supplier sudah ada!'
         ];
 
         $validasi = Validator::make($request->all(), [
-            'nama_supplier' => 'required',
+            'nama_supplier' => 'required|unique:suppliers,nama_supplier',
             'alamat' => 'required',
-            'telp' => 'required',
+            'telp' => 'required|unique:suppliers,telepon',
         ], $pesanValidasi);
 
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $data['kd_supplier'] = $request->kd_supplier;
-        $data['nama_supplier'] = $request->nama_supplier;
-        $data['alamat'] = $request->alamat;
-        $data['telepon'] = $request->telp;
+        $data['kd_supplier'] = htmlspecialchars($request->kd_supplier);
+        $data['nama_supplier'] = htmlspecialchars($request->nama_supplier);
+        $data['alamat'] = htmlspecialchars($request->alamat);
+        $data['telepon'] = htmlspecialchars($request->telp);
 
         Supplier::create($data);
         return redirect()->route('supplier')->with('success', 'Supplier berhasil ditambahkan!');
@@ -99,10 +101,10 @@ class SupplierController extends Controller
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $data['kd_supplier'] = $request->kd_supplier;
-        $data['nama_supplier'] = $request->nama_supplier;
-        $data['alamat'] = $request->alamat;
-        $data['telepon'] = $request->telp;
+        $data['kd_supplier'] = htmlspecialchars($request->kd_supplier);
+        $data['nama_supplier'] = htmlspecialchars($request->nama_supplier);
+        $data['alamat'] = htmlspecialchars($request->alamat);
+        $data['telepon'] = htmlspecialchars($request->telp);
 
         Supplier::whereId($id)->update($data);
         return redirect()->route('supplier')->with('success', 'Supplier berhasil terubah!');

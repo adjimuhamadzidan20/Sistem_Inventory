@@ -38,64 +38,74 @@
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo mb-3">
-                            <a href="{{ route('register') }}" class="mb-2">
-                               <h3 class="text-secondary">SI INVENTORY</h3>
-                            </a>
-                            <h6 class="text-secondary">REGISTER ACCOUNT</h6>
-                        </div>
-                        <div class="dropdown-divider mb-3"></div>
-                        <div class="login-form">
-                            <form action="{{ route('register_proses') }}" method="post">
-                                @csrf
-                                <div class="form-group">
-                                    <label>Nama Anda</label>
-                                    <input class="au-input au-input--full" type="text" name="nama" placeholder="Masukkan Nama Anda">
-                                    @error('nama')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
+                <div class="row">
+                    <div class="col">
+                        <div class="login-wrap">
+                            <div class="login-content">
+                                <div class="login-logo mb-3">
+                                    <a href="{{ route('register') }}" class="mb-2">
+                                       <h3 class="text-secondary">SI INVENTORY</h3>
+                                    </a>
+                                    <h6 class="text-secondary">REGISTER ACCOUNT</h6>
                                 </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Masukkan Email Anda">
-                                    @error('email')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
+                                <div class="dropdown-divider mb-3"></div>
+                                <div class="login-form">
+                                    <form action="{{ route('register_proses') }}" method="post">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Nama Anda</label>
+                                                    <input class="au-input au-input--full" type="text" name="nama" placeholder="Masukkan Nama Anda" value="{{ old('nama') }}">
+                                                    @error('nama')
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Masukkan Email Anda" value="{{ old('email') }}">
+                                                    @error('email')
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Jenis Kelamin</label>
+                                                    <select class="form-control" name="jenis_kelamin">
+                                                        <option value="" selected>-- Pilih Jenis Kelamin --</option>
+                                                        <option value="Laki-laki">Laki-laki</option>
+                                                        <option value="Perempuan">Perempuan</option>
+                                                    </select>
+                                                    @error('jenis_kelamin')
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Username</label>
+                                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Masukkan Username" value="{{ old('username') }}">
+                                                    @error('username')
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Masukkan Password">
+                                                    @error('password')
+                                                        <small class="text-danger">{{ $message }}</small>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="au-btn au-btn--block btn-primary mt-2" type="submit">Register</button>
+                                    </form>
+                                    <div class="register-link">
+                                        <p>
+                                            Do you have account?
+                                            <a href="{{ route('login') }}" class="text-primary">Log in Here</a>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Jenis Kelamin</label>
-                                    <select class="form-control" name="jenis_kelamin">
-                                        <option value="" selected>-- Pilih Jenis Kelamin --</option>
-                                        <option value="Laki-laki">Laki-laki</option>
-                                        <option value="Perempuan">Perempuan</option>
-                                    </select>
-                                    @error('jenis_kelamin')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input class="au-input au-input--full" type="text" name="username" placeholder="Masukkan Username">
-                                    @error('username')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Masukkan Password">
-                                    @error('password')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <button class="au-btn au-btn--block btn-primary" type="submit">Register</button>
-                            </form>
-                            <div class="register-link">
-                                <p>
-                                    Do you have account?
-                                    <a href="{{ route('login') }}" class="text-primary">Log in Here</a>
-                                </p>
                             </div>
                         </div>
                     </div>

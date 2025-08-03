@@ -42,17 +42,18 @@ class KategoriController extends Controller
     public function create_kategori_proses(Request $request)
     {
         $pesanValidasi = [
-            'kategori.required' => 'Kategori tidak boleh kosong!'
+            'kategori.required' => 'Kategori tidak boleh kosong!',
+            'kategori.unique' => 'Kategori sudah ada!'
         ];
 
         $validasi = Validator::make($request->all(), [
-            'kategori' => 'required',
+            'kategori' => 'required|unique:kategoris,kategori',
         ], $pesanValidasi);
 
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         } else {
-            $data['kategori'] = $request->kategori;
+            $data['kategori'] = htmlspecialchars($request->kategori);
             Kategori::create($data);
         }
 
@@ -72,7 +73,7 @@ class KategoriController extends Controller
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         } else {
-            $data['kategori'] = $request->kategori;
+            $data['kategori'] = htmlspecialchars($request->kategori);
             Kategori::whereId($id)->update($data);
         }
 

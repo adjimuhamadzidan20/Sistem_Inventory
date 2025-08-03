@@ -38,9 +38,10 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo mb-3">
-                            <a href="{{ route('login') }}">
+                            <a href="{{ route('login') }}" class="mb-2">
                                <h3 class="text-secondary">SI INVENTORY</h3>
                             </a>
+                            <h6 class="text-secondary">LOGIN ADMIN</h6>
                         </div>
                         <div class="dropdown-divider mb-3"></div>
                         <div class="login-form">
@@ -65,7 +66,7 @@
                                         <input type="checkbox" name="remember">Remember Me
                                     </label>
                                     <label>
-                                        <a href="#" class="text-primary">Forgotten Password?</a>
+                                        <a href="{{ route('forgot') }}" class="text-primary">Forgotten Password?</a>
                                     </label>
                                 </div>
                                 <button class="au-btn au-btn--block btn-primary mt-2" type="submit">Login</button>
@@ -89,8 +90,7 @@
     <script src="<?= url('template'); ?>/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="<?= url('template'); ?>/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS -->
-    <script src="<?= url('template'); ?>/vendor/slick/slick.min.js">
-    </script>
+    <script src="<?= url('template'); ?>/vendor/slick/slick.min.js"></script>
     <script src="<?= url('template'); ?>/vendor/counter-up/jquery.waypoints.min.js"></script>
     <script src="<?= url('template'); ?>/vendor/counter-up/jquery.counterup.min.js"></script>
     <script src="<?= url('template'); ?>/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -117,6 +117,28 @@
                 title: "Register User!",
                 text: "{{ $pesan }}",
                 icon: "success",
+                confirmButtonColor: "#007BFF"
+            });
+        </script>          
+    @endif
+
+    @if ($pesan = Session::get('success_validation'))
+        <script>
+            Swal.fire({
+                title: "Validasi Password!",
+                text: "{{ $pesan }}",
+                icon: "success",
+                confirmButtonColor: "#007BFF"
+            });
+        </script>          
+    @endif
+
+    @if ($pesan = Session::get('failed_validation'))
+        <script>
+            Swal.fire({
+                title: "Validasi Password!",
+                text: "{{ $pesan }}",
+                icon: "error",
                 confirmButtonColor: "#007BFF"
             });
         </script>          

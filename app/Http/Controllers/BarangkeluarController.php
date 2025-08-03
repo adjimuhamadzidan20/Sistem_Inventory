@@ -84,11 +84,11 @@ class BarangkeluarController extends Controller
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         } else {
-            $data['kd_barangkeluar'] = $request->kd_barangkeluar;
-            $data['tanggal_keluar'] = $request->tgl_keluar;
-            $data['barang_id'] = $request->barang;
-            $data['jumlah'] = $request->jumlah;
-            $data['tujuan'] = $request->tujuan;
+            $data['kd_barangkeluar'] = htmlspecialchars($request->kd_barangkeluar);
+            $data['tanggal_keluar'] = htmlspecialchars($request->tgl_keluar);
+            $data['barang_id'] = htmlspecialchars($request->barang);
+            $data['jumlah'] = htmlspecialchars($request->jumlah);
+            $data['tujuan'] = htmlspecialchars($request->tujuan);
 
             $modelBarang = new Barang();
             $dataBarang = $modelBarang->find($request->barang);
@@ -126,11 +126,11 @@ class BarangkeluarController extends Controller
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         } else {
-            $data['kd_barangkeluar'] = $request->kd_barangkeluar;
-            $data['tanggal_keluar'] = $request->tgl_keluar;
-            $data['barang_id'] = $request->barang;
-            $data['jumlah'] = $request->jumlah;
-            $data['tujuan'] = $request->tujuan;
+            $data['kd_barangkeluar'] = htmlspecialchars($request->kd_barangkeluar);
+            $data['tanggal_keluar'] = htmlspecialchars($request->tgl_keluar);
+            $data['barang_id'] = htmlspecialchars($request->barang);
+            $data['jumlah'] = htmlspecialchars($request->jumlah);
+            $data['tujuan'] = htmlspecialchars($request->tujuan);
 
             if ($request->jumlah) {
                 $data['jumlah'] = $request->jumlah;

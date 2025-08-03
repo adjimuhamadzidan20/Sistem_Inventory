@@ -36,23 +36,23 @@
             <table class="display table table-striped table-hover" id="barang-datatables">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th class="text-center">No</th>
                         <th>KD Barang</th>
                         <th>Nama Barang</th>
                         <th>Kategori</th>
-                        <th>Satuan</th>
-                        <th>Stok Barang</th>
+                        <th class="text-center">Satuan</th>
+                        <th class="text-center">Stok Barang</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($barang as $data)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $data->kd_barang }}</td>
                             <td>{{ $data->nama_barang }}</td>
                             <td>{{ $data->kategori->kategori }}</td>
-                            <td>{{ $data->satuan->satuan }}</td>
-                            <td>{{ $data->stok_barang }}</td>
+                            <td class="text-center">{{ $data->satuan->satuan }}</td>
+                            <td class="text-center">{{ $data->stok_barang }}</td>
                         </tr>
                     @endforeach
                 </tbody>

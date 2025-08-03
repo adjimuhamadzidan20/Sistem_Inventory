@@ -17,7 +17,7 @@
                                     @csrf
                                     <div class="mb-4">
                                         <label for="exampleFormControlKategori" class="form-label">Nama Kategori</label>
-                                        <input type="text" class="form-control" id="exampleFormControlKategori" placeholder="Masukkan Kategori" name="kategori">
+                                        <input type="text" class="form-control" id="exampleFormControlKategori" placeholder="Masukkan Kategori" name="kategori" value="{{ old('kategori') }}">
                                         @error('kategori')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   

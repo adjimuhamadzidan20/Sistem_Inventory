@@ -25,7 +25,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-// halaman dashboard
+// halaman auth
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/proses_login', [LoginController::class, 'proses_login'])->name('login_proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -33,6 +33,13 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
 Route::post('/proses_register', [RegisterController::class, 'proses_register'])->name('register_proses');
 
+// lupa password
+Route::get('/lupa_password', [LoginController::class, 'lupa_password'])->name('forgot')->middleware('guest');
+Route::post('/lupa_password_proses', [LoginController::class, 'lupa_password_proses'])->name('forgot_proses')->middleware('guest');
+Route::get('/validasi/{token}', [LoginController::class, 'validasi_password'])->name('validasi')->middleware('guest');
+Route::post('/validasi_proses', [LoginController::class, 'validasi_proses'])->name('validasi_proses')->middleware('guest');
+
+// halaman dashboard
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 

@@ -57,7 +57,7 @@
                     </li>
                     <li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item mb-2" href="{{ route('profil') }}"><i class="fas fa-user me-1"></i> View Profile</a>
+                        <a class="dropdown-item mb-1" href="{{ route('profil') }}"><i class="fas fa-user me-1"></i> View Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-power-off me-1"></i> Logout</a>
                     </li>
                 </div>

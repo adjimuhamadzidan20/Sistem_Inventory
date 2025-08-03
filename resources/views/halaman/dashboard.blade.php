@@ -4,7 +4,7 @@
     <div class="page-inner">
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             <div>
-                <h3 class="fw-bold mb-4 text-uppercase">SELAMAT DATANG, {{ auth()->user()->name }}!</h3>
+                <h3 class="fw-bold mb-3 text-uppercase">SELAMAT DATANG, {{ auth()->user()->name }}!</h3>
             </div>
         </div>
         <div class="row">

@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlNamaBarang" class="form-label">Nama Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlNamaBarang" placeholder="Masukkan Nama Barang" name="nama_barang">
+                                        <input type="text" class="form-control" id="exampleFormControlNamaBarang" placeholder="Masukkan Nama Barang" name="nama_barang" value="{{ old('nama_barang') }}">
                                         @error('nama_barang')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleFormControlStok" class="form-label">Stok Barang</label>
-                                        <input type="text" class="form-control" id="exampleFormControlStok" placeholder="Masukkan Jumlah Barang" name="jumlah">
+                                        <input type="text" class="form-control" id="exampleFormControlStok" placeholder="Masukkan Jumlah Barang" name="jumlah" value="{{ old('jumlah') }}">
                                         @error('jumlah')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror   

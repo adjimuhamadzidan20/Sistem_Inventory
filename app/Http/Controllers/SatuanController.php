@@ -42,18 +42,19 @@ class SatuanController extends Controller
     public function create_satuan_proses(Request $request)
     {
         $pesanValidasi = [
-            'satuan.required' => 'Satuan tidak boleh kosong!'
+            'satuan.required' => 'Satuan tidak boleh kosong!',
+            'satuan.unique' => 'Satuan sudah ada!'
         ];
 
         $validasi = Validator::make($request->all(), [
-            'satuan' => 'required',
+            'satuan' => 'required|unique:satuans,satuan',
         ], $pesanValidasi);
 
         if ($validasi->fails()) {
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $data['satuan'] = $request->satuan;
+        $data['satuan'] = htmlspecialchars($request->satuan);
         Satuan::create($data);
         return redirect()->route('satuan')->with('success', 'Satuan berhasil ditambahkan!');
     }
@@ -72,7 +73,7 @@ class SatuanController extends Controller
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $data['satuan'] = $request->satuan;
+        $data['satuan'] = htmlspecialchars($request->satuan);
         Satuan::whereId($id)->update($data);
         return redirect()->route('satuan')->with('success', 'Satuan berhasil terubah!');
     }
