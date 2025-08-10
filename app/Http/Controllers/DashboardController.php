@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends Controller
 {
+    // halaman dashboard admin
     public function dashboard()
     {
         $modelKategori = new Kategori();
@@ -55,7 +56,7 @@ class DashboardController extends Controller
             'user' => $data
         ]);
     }
-
+    // rubah profil user
     public function profil_edit($id)
     {
         $data = User::find($id);
@@ -66,7 +67,6 @@ class DashboardController extends Controller
             'user' => $data
         ]);
     }
-
     public function profil_edit_proses(Request $request, $id)
     {
         $pesanValidasi = [
@@ -95,7 +95,7 @@ class DashboardController extends Controller
             return redirect()->route('profil')->with('success', 'Data profil berhasil terubah!');;
         }
     }
-
+    // rubah password user / admin
     public function profil_edit_password($id)
     {
         $data = User::find($id);
@@ -106,7 +106,6 @@ class DashboardController extends Controller
             'user' => $data
         ]);
     }
-
     public function profil_editpw_proses(Request $request, $id)
     {
         $data = User::find($id);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jul 2025 pada 15.39
+-- Waktu pembuatan: 10 Agu 2025 pada 03.30
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.31
 
@@ -38,6 +38,15 @@ CREATE TABLE `barangkeluars` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `barangkeluars`
+--
+
+INSERT INTO `barangkeluars` (`id`, `kd_barangkeluar`, `tanggal_keluar`, `barang_id`, `jumlah`, `tujuan`, `created_at`, `updated_at`) VALUES
+(1, 'BK-252025-001', '2025-07-06', 1, 3, 'Cikarang Barat', '2025-07-05 22:07:45', '2025-07-05 22:07:45'),
+(2, 'BK-252025-002', '2025-07-07', 4, 5, 'Kota Bekasi', '2025-07-07 00:32:03', '2025-07-07 00:32:03'),
+(3, 'BK-252025-003', '2025-07-28', 5, 5, 'Cikarang Barat', '2025-07-28 06:09:02', '2025-07-28 06:09:02');
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +63,19 @@ CREATE TABLE `barangmasuks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `barangmasuks`
+--
+
+INSERT INTO `barangmasuks` (`id`, `kd_barangmasuk`, `tanggal_masuk`, `barang_id`, `jumlah`, `supplier_id`, `created_at`, `updated_at`) VALUES
+(1, 'BM-202025-001', '2025-07-06', 1, 30, 3, '2025-07-05 22:03:12', '2025-07-05 22:03:12'),
+(2, 'BM-202025-002', '2025-07-06', 4, 15, 3, '2025-07-05 22:03:38', '2025-07-05 22:03:38'),
+(3, 'BM-202025-003', '2025-07-06', 2, 5, 1, '2025-07-05 22:05:07', '2025-07-05 22:05:07'),
+(4, 'BM-202025-004', '2025-07-06', 2, 40, 5, '2025-07-05 22:06:39', '2025-07-05 22:06:39'),
+(5, 'BM-202025-005', '2025-07-28', 5, 15, 6, '2025-07-28 06:08:25', '2025-07-28 06:08:25'),
+(6, 'BM-202025-006', '2025-07-28', 1, 12, 2, '2025-07-28 06:47:10', '2025-07-28 06:47:10'),
+(7, 'BM-202025-007', '2025-08-03', 5, 20, 4, '2025-08-03 06:26:58', '2025-08-03 06:26:58');
 
 -- --------------------------------------------------------
 
@@ -77,9 +99,11 @@ CREATE TABLE `barangs` (
 --
 
 INSERT INTO `barangs` (`id`, `kd_barang`, `nama_barang`, `kategori_id`, `satuan_id`, `stok_barang`, `created_at`, `updated_at`) VALUES
-(1, 'BRG-05072025-001', 'Mesin Cuci Samsung', 1, 4, 10, '2025-07-05 00:25:14', '2025-07-05 00:25:14'),
-(2, 'BRG-05072025-002', 'Kulkas Sharp 2 Pintu', 1, 4, 30, '2025-07-05 00:53:12', '2025-07-05 00:53:12'),
-(3, 'BRG-05072025-003', 'Kipas Angin Kecil', 1, 4, 12, '2025-07-05 00:53:34', '2025-07-05 01:08:01');
+(1, 'BRG-152025-001', 'Mesin Cuci Samsung', 1, 4, 69, '2025-07-05 22:00:26', '2025-07-05 22:00:26'),
+(2, 'BRG-152025-002', 'Kipas Angin Kecil', 1, 4, 57, '2025-07-05 22:00:47', '2025-07-05 22:00:47'),
+(3, 'BRG-152025-003', 'Kulkas Sharp 2 Pintu', 1, 4, 15, '2025-07-05 22:01:06', '2025-07-05 22:01:06'),
+(4, 'BRG-152025-004', 'Buku Tulis SIDU', 3, 4, 40, '2025-07-05 22:02:07', '2025-07-05 22:02:07'),
+(5, 'BRG-152025-005', 'Kertas Binder', 3, 7, 60, '2025-07-28 06:06:57', '2025-07-28 06:06:57');
 
 -- --------------------------------------------------------
 
@@ -116,8 +140,12 @@ CREATE TABLE `kategoris` (
 
 INSERT INTO `kategoris` (`id`, `kategori`, `created_at`, `updated_at`) VALUES
 (1, 'Elektronik', '2025-07-04 18:45:37', '2025-07-04 18:45:37'),
-(2, 'Sparepart', '2025-07-04 18:48:01', '2025-07-04 18:48:01'),
-(3, 'Alat tulis kantor', '2025-07-04 18:48:21', '2025-07-04 19:00:45');
+(2, 'Sparepart Motor', '2025-07-04 18:48:01', '2025-08-02 01:24:11'),
+(3, 'Alat Tulis Kantor (ATK)', '2025-07-04 18:48:21', '2025-07-28 06:05:14'),
+(6, 'Bahan Tekstil', '2025-07-08 07:44:02', '2025-08-02 01:23:58'),
+(7, 'Alat Berat', '2025-07-28 06:04:56', '2025-07-28 06:04:56'),
+(8, 'Industrial', '2025-08-02 01:23:36', '2025-08-02 01:23:36'),
+(9, 'Sparepart Mobil', '2025-08-02 18:35:27', '2025-08-02 18:35:27');
 
 -- --------------------------------------------------------
 
@@ -196,9 +224,13 @@ CREATE TABLE `satuans` (
 --
 
 INSERT INTO `satuans` (`id`, `satuan`, `created_at`, `updated_at`) VALUES
-(1, 'Kg', '2025-07-04 19:35:31', '2025-07-04 19:39:38'),
+(1, 'Kilogram', '2025-07-04 19:35:31', '2025-07-05 06:51:34'),
 (2, 'Lusin', '2025-07-04 19:35:54', '2025-07-04 19:35:54'),
-(4, 'Unit', '2025-07-04 19:36:15', '2025-07-04 19:36:15');
+(4, 'Unit', '2025-07-04 19:36:15', '2025-07-04 19:36:15'),
+(5, 'Kodi', '2025-07-05 06:50:36', '2025-07-05 06:50:36'),
+(6, 'Rim', '2025-07-08 07:44:45', '2025-07-08 07:44:45'),
+(7, 'Dus', '2025-07-28 06:05:40', '2025-07-28 06:05:40'),
+(8, 'Ton', '2025-08-02 01:24:41', '2025-08-02 01:24:41');
 
 -- --------------------------------------------------------
 
@@ -221,9 +253,13 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `kd_supplier`, `nama_supplier`, `alamat`, `telepon`, `created_at`, `updated_at`) VALUES
-(1, 'SP-05072025-001', 'PT Alam Segar TBK', 'Jatirahayu, Pondokmelati, Kota Bekasi', '089999004353', '2025-07-04 20:33:09', '2025-07-04 20:45:59'),
-(2, 'SP-05072025-002', 'PT Ajinomoto', 'KIIC Karawang', '089932234353', '2025-07-04 20:38:26', '2025-07-04 20:38:26'),
-(4, 'SP-05072025-003', 'PT SSD', 'Cikarang', '089999004390', '2025-07-04 20:49:01', '2025-07-04 20:49:01');
+(1, 'SP-102025-001', 'PT Jasamarga', 'Jakarta Timur', '089999004353', '2025-07-05 21:56:45', '2025-07-05 21:56:45'),
+(2, 'SP-102025-002', 'PT Alam Segar TBK', 'Kota Bekasi', '089999004353', '2025-07-05 21:57:08', '2025-07-05 21:58:28'),
+(3, 'SP-102025-003', 'PT SSD', 'Kota Bekasi', '089999004390', '2025-07-05 21:57:30', '2025-07-05 21:57:30'),
+(4, 'SP-102025-004', 'PT Ajinomoto TBK', 'KIIC Karawang', '087766643537', '2025-07-05 21:57:53', '2025-07-05 21:58:51'),
+(5, 'SP-102025-005', 'PT Indofood', 'Kawasan Pulogadung', '089999004999', '2025-07-05 21:59:26', '2025-07-05 21:59:26'),
+(6, 'SP-102025-006', 'PT Angin Ribut', 'Kawasan MM2100 Cikarang', '089999004390', '2025-07-28 06:06:13', '2025-07-28 06:06:13'),
+(7, 'SP-102025-007', 'PT Untung Terus', 'Kota Bekasi', '08776663434', '2025-08-02 01:25:21', '2025-08-02 01:25:21');
 
 -- --------------------------------------------------------
 
@@ -243,6 +279,17 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `jenis_kelamin`, `username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Beyourselfit', 'beyourselfit@email.com', NULL, 'Laki-laki', 'beyourself123', '$2y$12$nD.3wz8Q1Sxw4pEuyRY8IOaPoMBy.mVtkS8ZG.xYWjXpiMneH83ZG', NULL, NULL, '2025-08-09 17:35:49'),
+(2, 'Revolution', 'revolution24@email.com', NULL, 'Laki-laki', 'admin123', '$2y$12$aIics3P9F/YohnKed75MJOmWYMVmGZrUmjNu8oiu.NP5vZwsOnF4O', NULL, '2025-07-07 00:14:29', '2025-07-10 08:09:04'),
+(3, 'Education', 'education@email.com', NULL, 'Laki-laki', 'pengguna123', '$2y$12$ZasHZoGj5B8UFBWoCeTwsOPmzkKa6SGR0kifsfUuQeXcaagDUOEGO', NULL, '2025-07-08 07:45:58', '2025-07-08 07:45:58'),
+(4, 'Test123', 'test123@email.com', NULL, 'Laki-laki', 'test123', '$2y$12$2WQ5uGi0zdHEOIlb6uEeQuYguJPlFvKCgFQ.W2HqyokntNLl/HJra', NULL, '2025-07-08 07:47:32', '2025-08-09 17:33:51'),
+(5, 'Culture Local', 'culturlocal@email.com', NULL, 'Laki-laki', 'culture123', '$2y$12$oLD4U7tMLIWbYdMcxdRZLe9rLB0ltJ97nQtAOiTGufeJlUqamj2UC', NULL, '2025-08-09 06:53:07', '2025-08-09 06:53:07');
 
 --
 -- Indexes for dumped tables
@@ -331,19 +378,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barangkeluars`
 --
 ALTER TABLE `barangkeluars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `barangmasuks`
 --
 ALTER TABLE `barangmasuks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -355,7 +402,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `kategoris`
 --
 ALTER TABLE `kategoris`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -373,19 +420,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `satuans`
 --
 ALTER TABLE `satuans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

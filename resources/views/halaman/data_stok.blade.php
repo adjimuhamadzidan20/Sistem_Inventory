@@ -23,11 +23,11 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th>KD Barang</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kategori</th>
-                                        <th class="text-center">Satuan</th>
-                                        <th class="text-center">Stok Barang</th>
+                                        <th class="text-nowrap">KD Barang</th>
+                                        <th class="text-nowrap">Nama Barang</th>
+                                        <th class="text-nowrap">Kategori</th>
+                                        <th class="text-center text-nowrap">Satuan</th>
+                                        <th class="text-center text-nowrap">Stok Barang</th>
                                         <th class="text-center">Opsi</th>
                                     </tr>
                                 </thead>
@@ -35,15 +35,15 @@
                                     @foreach ($barang as $data)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td>{{ $data->kd_barang }}</td>
-                                            <td>{{ $data->nama_barang }}</td>
-                                            <td>{{ $data->kategori->kategori }}</td>
-                                            <td class="text-center">{{ $data->satuan->satuan }}</td>
-                                            <td class="text-center">{{ $data->stok_barang }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('barang_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-nowrap">{{ $data->kd_barang }}</td>
+                                            <td class="text-nowrap">{{ $data->nama_barang }}</td>
+                                            <td class="text-nowrap">{{ $data->kategori->kategori }}</td>
+                                            <td class="text-center text-nowrap">{{ $data->satuan->satuan }}</td>
+                                            <td class="text-center text-nowrap">{{ $data->stok_barang }}</td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="{{ route('barang_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="ubah data"><i class="fas fa-edit"></i></a>
                                                 
-                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}"><i class="fas fa-trash"></i></button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}" title="hapus data"><i class="fas fa-trash"></i></button>
                                             </td>
 
                                             <!-- Modal -->

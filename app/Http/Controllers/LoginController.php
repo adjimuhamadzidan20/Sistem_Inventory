@@ -7,6 +7,7 @@ use App\Models\ResetTokenPass;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -14,11 +15,12 @@ use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
-    // login admin
+    // halaman login admin
     public function login()
     {
         return view('auth.login');
     }
+    // proses login
     public function proses_login(Request $request)
     {
         $pesanValidasi = [
@@ -52,7 +54,7 @@ class LoginController extends Controller
         }
     }
 
-    // lupa password admin
+    // lupa password login admin
     public function lupa_password()
     {
         return view('auth.forgot');
@@ -82,7 +84,7 @@ class LoginController extends Controller
             ]
         );
 
-        // kirim ke mail/mailtrap
+        // kirim ke mail / mailtrap
         Mail::to($request->email)->send(new ForgotPasswordMail($token));
         return redirect()->route('forgot')->with('success', 'Email berhasil terkirim!');
     }
@@ -108,7 +110,7 @@ class LoginController extends Controller
         ], $pesanValidasi);
 
         // mengambil data token
-        $token = ResetTokenPass::where('token', $request->token)->first();
+        $token = DB::table('password_reset_tokens')->where('token', $request->token)->first();
         if (!$token) {
             return redirect()->route('login')->with('failed_validation', 'Token tidak valid!');
         }
@@ -117,12 +119,11 @@ class LoginController extends Controller
         if (!$user) {
             return redirect()->route('login')->with('failed_validation', 'Email tidak terdaftar di database!');
         } else {
-            $user->update([
-                'password' => Hash::make($request->password_baru)
-            ]);
+            $pass = ['password' => Hash::make($request->password_baru)];
+            $user->where('email', $token->email)->update($pass);
         }
 
-        $token->delete();
+        DB::table('password_reset_tokens')->delete();
         return redirect()->route('login')->with('success_validation', 'Password berhasil terubah!');
     }
 

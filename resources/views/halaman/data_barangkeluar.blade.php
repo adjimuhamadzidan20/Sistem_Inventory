@@ -23,29 +23,29 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th>Kode</th>
-                                        <th class="text-center">Tgl Keluar</th>
-                                        <th class="text-center">Waktu</th>
-                                        <th>Nama Barang</th>
-                                        <th class="text-center">Jumlah</th>
-                                        <th>Tujuan</th>
-                                        <th class="text-center">Opsi</th>
+                                        <th class="text-nowrap">Kode</th>
+                                        <th class="text-center text-nowrap">Tgl Keluar</th>
+                                        <th class="text-center text-nowrap">Waktu</th>
+                                        <th class="text-nowrap">Nama Barang</th>
+                                        <th class="text-center text-nowrap">Jumlah</th>
+                                        <th class="text-nowrap">Tujuan</th>
+                                        <th class="text-center text-nowrap">Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($barangkeluar as $data)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td>{{ $data->kd_barangkeluar }}</td>
-                                            <td class="text-center">{{ $data->tanggal_keluar }}</td>
-                                            <td class="text-center">{{ $data->created_at->format('H:i') }}</td>
-                                            <td>{{ $data->barang->nama_barang }}</td>
-                                            <td class="text-center">{{ $data->jumlah }}</td>
-                                            <td>{{ $data->tujuan }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('barangkeluar_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-nowrap">{{ $data->kd_barangkeluar }}</td>
+                                            <td class="text-center text-nowrap">{{ $data->tanggal_keluar }}</td>
+                                            <td class="text-center text-nowrap">{{ $data->created_at->format('H:i') }}</td>
+                                            <td class="text-nowrap">{{ $data->barang->nama_barang }}</td>
+                                            <td class="text-center text-nowrap">{{ $data->jumlah }}</td>
+                                            <td class="text-nowrap">{{ $data->tujuan }}</td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="{{ route('barangkeluar_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="ubah data"><i class="fas fa-edit"></i></a>
 
-                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}"><i class="fas fa-trash"></i></button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}" title="hapus data"><i class="fas fa-trash"></i></button>
                                             </td>
 
                                             <!-- Modal -->

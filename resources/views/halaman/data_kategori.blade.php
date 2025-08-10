@@ -23,7 +23,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th>Nama Kategori</th>
+                                        <th class="text-nowrap">Nama Kategori</th>
                                         <th>Created</th>
                                         <th class="text-center">Opsi</th>
                                     </tr>
@@ -32,12 +32,12 @@
                                     @foreach ($kategori as $data)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td>{{ $data->kategori }}</td>
-                                            <td>{{ $data->created_at }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('kategori_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-nowrap">{{ $data->kategori }}</td>
+                                            <td class="text-nowrap">{{ $data->created_at }}</td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="{{ route('kategori_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="ubah data"><i class="fas fa-edit"></i></a>
 
-                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}"><i class="fas fa-trash"></i></button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}" title="hapus data"><i class="fas fa-trash"></i></button>
                                             </td>
 
                                             <!-- Modal -->

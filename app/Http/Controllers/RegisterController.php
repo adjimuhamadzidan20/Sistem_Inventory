@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    // halaman regist (daftar)
     public function register()
     {
         return view('auth.register');
     }
-
+    // proses regist (daftar)
     public function proses_register(Request $request)
     {
         $pesanValidasi = [

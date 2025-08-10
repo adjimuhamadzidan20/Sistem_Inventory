@@ -23,10 +23,10 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th>KD Supplier</th>
-                                        <th>Nama Supplier</th>
-                                        <th>Alamat</th>
-                                        <th>Telepon</th>
+                                        <th class="text-nowrap">KD Supplier</th>
+                                        <th class="text-nowrap">Nama Supplier</th>
+                                        <th class="text-nowrap">Alamat</th>
+                                        <th class="text-nowrap">Telepon</th>
                                         <th class="text-center">Opsi</th>
                                     </tr>
                                 </thead>
@@ -34,14 +34,14 @@
                                     @foreach ($supplier as $data)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td>{{ $data->kd_supplier }}</td>
-                                            <td>{{ $data->nama_supplier }}</td>
-                                            <td>{{ $data->alamat }}</td>
-                                            <td>{{ $data->telepon }}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('supplier_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-nowrap">{{ $data->kd_supplier }}</td>
+                                            <td class="text-nowrap">{{ $data->nama_supplier }}</td>
+                                            <td class="text-nowrap">{{ $data->alamat }}</td>
+                                            <td class="text-nowrap">{{ $data->telepon }}</td>
+                                            <td class="text-center text-nowrap">
+                                                <a href="{{ route('supplier_edit', ['id' => $data->id]) }}" class="btn btn-primary btn-sm" title="ubah data"><i class="fas fa-edit"></i></a>
 
-                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}"><i class="fas fa-trash"></i></button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $data->id }}" title="hapus data"><i class="fas fa-trash"></i></button>
                                             </td>
 
                                             <!-- Modal -->
